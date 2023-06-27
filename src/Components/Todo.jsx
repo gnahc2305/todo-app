@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const style = {
@@ -9,7 +10,7 @@ const style = {
   button: `cursor-pointer flex items-center`,
 };
 
-function Todo({ todo, toggleComplete }) {
+function Todo({ todo, toggleComplete, deleteTodo }) {
   return (
     <li className={todo.completed ? style.liComplete : style.li}>
       <div className={style.row}>
@@ -18,7 +19,7 @@ function Todo({ todo, toggleComplete }) {
           {todo.text}
         </p>
       </div>
-      <button>{<FaRegTrashAlt />}</button>
+      <button onClick={() => deleteTodo(todo.id)}>{<FaRegTrashAlt />}</button>
     </li>
   );
 }
